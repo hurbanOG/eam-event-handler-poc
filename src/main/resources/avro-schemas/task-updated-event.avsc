@@ -1,0 +1,39 @@
+{
+  "type": "record",
+  "name": "TaskUpdatedEvent",
+  "namespace": "com.opengov.eam.event.message",
+  "fields": [
+    {
+      "name": "assetId",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "entityId",
+      "type": "string"
+    },
+    {
+      "name": "eventId",
+      "type": "string"
+    },
+    {
+      "name": "recordId",
+      "type": "string"
+    },
+    {
+      "name": "recordType",
+      "type": "string"
+    },
+    {
+      "name": "stepId",
+      "type": "string"
+    },
+    {
+      "name": "taskId",
+      "type": "string"
+    }
+  ]
+}

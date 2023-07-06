@@ -1,0 +1,22 @@
+springdoc:
+  swagger-ui:
+    use-root-path: true
+spring:
+  application.name: eam-event-handler-poc
+  profiles.active: local
+
+kafka:
+  producer:
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+    subject-name-strategy: io.confluent.kafka.serializers.subject.TopicRecordNameStrategy
+    register-schema: false
+    normalize-schema: true
+    record-event-topic: plc_record_events
+    task-event-topic: eam_task_events
+  consumer:
+    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+    event-topic: plc_record_events
+    group-id: event-handler

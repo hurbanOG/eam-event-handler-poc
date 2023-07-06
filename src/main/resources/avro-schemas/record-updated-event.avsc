@@ -1,0 +1,59 @@
+{
+  "type": "record",
+  "name": "RecordUpdatedEvent",
+  "namespace": "com.opengov.eam.event.message",
+  "fields": [
+    {
+      "name": "eventId",
+      "type": "string"
+    },
+    {
+      "name": "entityId",
+      "type": "string"
+    },
+    {
+      "name": "recordId",
+      "type": "string"
+    },
+    {
+      "name": "recordType",
+      "type": "string"
+    },
+    {
+      "name": "stepId",
+      "type": "string"
+    },
+    {
+      "name": "address1",
+      "type": "string"
+    },
+    {
+      "name": "address2",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "city",
+      "type": "string"
+    },
+    {
+      "name": "state",
+      "type": "string"
+    },
+    {
+      "name": "zip",
+      "type": "string"
+    },
+    {
+      "name": "latitude",
+      "type": "string"
+    },
+    {
+      "name": "longitude",
+      "type": "string"
+    }
+  ]
+}
