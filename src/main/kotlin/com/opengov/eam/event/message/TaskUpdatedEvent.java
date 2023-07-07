@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4192038375820443305L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TaskUpdatedEvent\",\"namespace\":\"com.opengov.eam.event.message\",\"fields\":[{\"name\":\"assetId\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"entityId\",\"type\":\"string\"},{\"name\":\"eventId\",\"type\":\"string\"},{\"name\":\"recordId\",\"type\":\"string\"},{\"name\":\"recordType\",\"type\":\"string\"},{\"name\":\"stepId\",\"type\":\"string\"},{\"name\":\"taskId\",\"type\":\"string\"}]}");
+  private static final long serialVersionUID = -1692624204994604649L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"TaskUpdatedEvent\",\"namespace\":\"com.opengov.eam.event.message\",\"fields\":[{\"name\":\"assetId\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"entityId\",\"type\":\"string\"},{\"name\":\"eventId\",\"type\":\"string\"},{\"name\":\"recordId\",\"type\":\"string\"},{\"name\":\"recordType\",\"type\":\"string\"},{\"name\":\"stepId\",\"type\":\"string\"},{\"name\":\"taskId\",\"type\":\"string\"},{\"name\":\"status\",\"type\":[\"null\",\"string\"],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -78,6 +78,7 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
    private java.lang.CharSequence recordType;
    private java.lang.CharSequence stepId;
    private java.lang.CharSequence taskId;
+   private java.lang.CharSequence status;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -95,8 +96,9 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
    * @param recordType The new value for recordType
    * @param stepId The new value for stepId
    * @param taskId The new value for taskId
+   * @param status The new value for status
    */
-  public TaskUpdatedEvent(java.lang.CharSequence assetId, java.lang.CharSequence entityId, java.lang.CharSequence eventId, java.lang.CharSequence recordId, java.lang.CharSequence recordType, java.lang.CharSequence stepId, java.lang.CharSequence taskId) {
+  public TaskUpdatedEvent(java.lang.CharSequence assetId, java.lang.CharSequence entityId, java.lang.CharSequence eventId, java.lang.CharSequence recordId, java.lang.CharSequence recordType, java.lang.CharSequence stepId, java.lang.CharSequence taskId, java.lang.CharSequence status) {
     this.assetId = assetId;
     this.entityId = entityId;
     this.eventId = eventId;
@@ -104,6 +106,7 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
     this.recordType = recordType;
     this.stepId = stepId;
     this.taskId = taskId;
+    this.status = status;
   }
 
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
@@ -118,6 +121,7 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
     case 4: return recordType;
     case 5: return stepId;
     case 6: return taskId;
+    case 7: return status;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -133,6 +137,7 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
     case 4: recordType = (java.lang.CharSequence)value$; break;
     case 5: stepId = (java.lang.CharSequence)value$; break;
     case 6: taskId = (java.lang.CharSequence)value$; break;
+    case 7: status = (java.lang.CharSequence)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -208,6 +213,16 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
 
 
   /**
+   * Gets the value of the 'status' field.
+   * @return The value of the 'status' field.
+   */
+  public java.lang.CharSequence getStatus() {
+    return status;
+  }
+
+
+
+  /**
    * Creates a new TaskUpdatedEvent RecordBuilder.
    * @return A new TaskUpdatedEvent RecordBuilder
    */
@@ -255,6 +270,7 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
     private java.lang.CharSequence recordType;
     private java.lang.CharSequence stepId;
     private java.lang.CharSequence taskId;
+    private java.lang.CharSequence status;
 
     /** Creates a new Builder */
     private Builder() {
@@ -295,6 +311,10 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
         this.taskId = data().deepCopy(fields()[6].schema(), other.taskId);
         fieldSetFlags()[6] = other.fieldSetFlags()[6];
       }
+      if (isValidValue(fields()[7], other.status)) {
+        this.status = data().deepCopy(fields()[7].schema(), other.status);
+        fieldSetFlags()[7] = other.fieldSetFlags()[7];
+      }
     }
 
     /**
@@ -330,6 +350,10 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
       if (isValidValue(fields()[6], other.taskId)) {
         this.taskId = data().deepCopy(fields()[6].schema(), other.taskId);
         fieldSetFlags()[6] = true;
+      }
+      if (isValidValue(fields()[7], other.status)) {
+        this.status = data().deepCopy(fields()[7].schema(), other.status);
+        fieldSetFlags()[7] = true;
       }
     }
 
@@ -613,6 +637,46 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
       return this;
     }
 
+    /**
+      * Gets the value of the 'status' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getStatus() {
+      return status;
+    }
+
+
+    /**
+      * Sets the value of the 'status' field.
+      * @param value The value of 'status'.
+      * @return This builder.
+      */
+    public com.opengov.eam.event.message.TaskUpdatedEvent.Builder setStatus(java.lang.CharSequence value) {
+      validate(fields()[7], value);
+      this.status = value;
+      fieldSetFlags()[7] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'status' field has been set.
+      * @return True if the 'status' field has been set, false otherwise.
+      */
+    public boolean hasStatus() {
+      return fieldSetFlags()[7];
+    }
+
+
+    /**
+      * Clears the value of the 'status' field.
+      * @return This builder.
+      */
+    public com.opengov.eam.event.message.TaskUpdatedEvent.Builder clearStatus() {
+      status = null;
+      fieldSetFlags()[7] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public TaskUpdatedEvent build() {
@@ -625,6 +689,7 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
         record.recordType = fieldSetFlags()[4] ? this.recordType : (java.lang.CharSequence) defaultValue(fields()[4]);
         record.stepId = fieldSetFlags()[5] ? this.stepId : (java.lang.CharSequence) defaultValue(fields()[5]);
         record.taskId = fieldSetFlags()[6] ? this.taskId : (java.lang.CharSequence) defaultValue(fields()[6]);
+        record.status = fieldSetFlags()[7] ? this.status : (java.lang.CharSequence) defaultValue(fields()[7]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -677,6 +742,14 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
 
     out.writeString(this.taskId);
 
+    if (this.status == null) {
+      out.writeIndex(0);
+      out.writeNull();
+    } else {
+      out.writeIndex(1);
+      out.writeString(this.status);
+    }
+
   }
 
   @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
@@ -703,8 +776,15 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
 
       this.taskId = in.readString(this.taskId instanceof Utf8 ? (Utf8)this.taskId : null);
 
+      if (in.readIndex() != 1) {
+        in.readNull();
+        this.status = null;
+      } else {
+        this.status = in.readString(this.status instanceof Utf8 ? (Utf8)this.status : null);
+      }
+
     } else {
-      for (int i = 0; i < 7; i++) {
+      for (int i = 0; i < 8; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           if (in.readIndex() != 1) {
@@ -737,6 +817,15 @@ public class TaskUpdatedEvent extends org.apache.avro.specific.SpecificRecordBas
 
         case 6:
           this.taskId = in.readString(this.taskId instanceof Utf8 ? (Utf8)this.taskId : null);
+          break;
+
+        case 7:
+          if (in.readIndex() != 1) {
+            in.readNull();
+            this.status = null;
+          } else {
+            this.status = in.readString(this.status instanceof Utf8 ? (Utf8)this.status : null);
+          }
           break;
 
         default:

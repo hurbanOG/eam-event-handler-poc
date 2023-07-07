@@ -13,7 +13,7 @@ class TaskService(
 
     fun createTask(task: TaskUpdated): TaskUpdatedResponse {
         val taskId = UUID.randomUUID().toString()
-        val event = task.toEvent(taskId)
+        val event = task.toEvent(taskId, "CREATED")
         kafkaPublisher.publishMessage(event)
         return  TaskUpdatedResponse(
             taskId
@@ -33,7 +33,7 @@ data class TaskUpdatedResponse(
     val taskId: String
 )
 
-fun TaskUpdated.toEvent(taskId: String): TaskUpdatedEvent = TaskUpdatedEvent(
+fun TaskUpdated.toEvent(taskId: String, status: String): TaskUpdatedEvent = TaskUpdatedEvent(
     assetId,
     entityId,
     generateMessageKey(this::class, taskId),
@@ -41,6 +41,7 @@ fun TaskUpdated.toEvent(taskId: String): TaskUpdatedEvent = TaskUpdatedEvent(
     recordType,
     stepId,
     taskId,
+    status
 )
 
 
